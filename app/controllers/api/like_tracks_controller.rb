@@ -2,12 +2,12 @@ class Api::LikeTracksController < ActionController::Base
 	before_action :add_cors_headers
 	respond_to :json
 	
-	def index
-		respond_with LikeTrack.all
-	end
-
+	
 	def create
-
+		permitted = params.require(:like_track).permit(:user_id)
+		like_track_new = LikeTrack.create(permitted)
+		
+		render json:like_track_new 
 	end
 
 	private

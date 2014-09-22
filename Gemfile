@@ -15,6 +15,11 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'therubyracer',  platforms: :ruby
 
 # Use jquery as the JavaScript library
+
+gem 'bootstrap-sass', '~> 3.2.0'
+gem 'autoprefixer-rails'
+
+gem 'rails_admin'
 gem 'annotate'
 gem 'pry'
 gem 'pry-rails'
@@ -32,6 +37,11 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 
 gem 'mysql', '~> 2.9.1'
+gem 'devise'
+group :development do
+  gem "better_errors"
+  gem 'xray-rails'
+end
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
