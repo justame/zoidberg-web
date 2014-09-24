@@ -18,3 +18,5 @@
 /vendor/assets/bower_components
 public/assets/
 /vendor/assets/components
+app/node_modules
+node_modules/
