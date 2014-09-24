@@ -38,7 +38,11 @@ gem 'spring',        group: :development
 
 gem 'mysql', '~> 2.9.1'
 gem 'devise'
+gem 'angular-rails-templates'
+gem 'bower-rails'
+
 group :development do
+  gem 'guard'
   gem "better_errors"
   gem 'xray-rails'
 end
