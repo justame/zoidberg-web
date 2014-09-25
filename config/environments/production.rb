@@ -31,7 +31,17 @@ Rails.application.configure do
 
   # Generate digests for assets URLs.
   config.assets.digest = true
+  # Compress JavaScripts and CSS
+    class NoCompression
+         def compress(string)
+             # do nothing
+             string
+         end
+     end
 
+     config.assets.compress = true
+     config.assets.js_compressor = NoCompression.new
+     config.assets.css_compressor = NoCompression.new
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
   # Specifies the header that your server uses for sending files.
