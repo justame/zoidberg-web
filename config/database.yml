@@ -46,9 +46,19 @@ test:
 #
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
-#
-production:
-  <<: *default
-  database: zoidberg-web_production
-  username: zoidberg-web
-  password: <%= ENV['ZOIDBERG-WEB_DATABASE_PASSWORD'] %>
+# #
+
+production: &default
+  database: zoidberg-web_development
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  username: root
+  password: 101202
+  socket: /var/run/mysqld/mysqld.sock
+
+# production:
+#   <<: *default
+#   database: zoidberg-web_production
+#   username: zoidberg-web
+#   password: <%= ENV['ZOIDBERG-WEB_DATABASE_PASSWORD'] %>
