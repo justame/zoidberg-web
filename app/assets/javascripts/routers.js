@@ -1,6 +1,6 @@
 'use strict';
 
-mainApp.config(function($stateProvider, $urlRouterProvider) {
+angular.module('zoidbergApp').config(function($stateProvider, $urlRouterProvider) {
   //
   // For any unmatched url, redirect to /state1
   $urlRouterProvider.otherwise("/dashboard");
