@@ -4,7 +4,7 @@
   zoidbergApp.controller('dashboardCtrl', function($scope, $http) {
 
     $scope.startAutomaticLikes = function() {
-      $http.post('api/worker/okcupid', {
+      $http.post('api/job/okcupid', {
         user_website_credential: {
           username: $scope.username,
           password: $scope.password

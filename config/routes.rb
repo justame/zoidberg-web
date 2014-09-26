@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   namespace :api do
     resources :like_tracks, :except => [:destroy, :update]
     resources :user_website_credential, :except => [:destroy]
-    post 'worker/:website_title' => 'worker#start'
+    post 'job/:website_title' => 'job#create'
   end
 
 

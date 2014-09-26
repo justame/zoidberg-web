@@ -14,6 +14,8 @@
 #  current_sign_in_ip     :string(255)
 #  last_sign_in_ip        :string(255)
 #  admin                  :boolean          default(FALSE)
+#  created_at             :datetime
+#  updated_at             :datetime
 #
 
 class User < ActiveRecord::Base
@@ -22,7 +24,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
- def is_admin?
-  self.admin?
- end
+  def is_admin?
+    self.admin?
+  end
 end

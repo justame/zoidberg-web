@@ -11,12 +11,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140926004323) do
+ActiveRecord::Schema.define(version: 20140926200946) do
+
+  create_table "jobs", force: true do |t|
+    t.integer  "website_id"
+    t.integer  "user_id"
+    t.integer  "job_type"
+    t.integer  "quantity"
+    t.integer  "status"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "like_tracks", force: true do |t|
     t.string   "user_id"
     t.string   "website_id"
     t.string   "website_profile_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tasks", force: true do |t|
+    t.integer  "job_id"
+    t.integer  "quantity"
+    t.integer  "status"
+    t.datetime "start_date"
+    t.datetime "end_date"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -42,6 +64,8 @@ ActiveRecord::Schema.define(version: 20140926004323) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.boolean  "admin",                  default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
