@@ -20,7 +20,10 @@ Rails.application.routes.draw do
   namespace :api do
     resources :like_tracks, :except => [:destroy, :update]
     resources :user_website_credential, :except => [:destroy]
+    post 'worker/:website_title' => 'worker#start'
   end
+
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

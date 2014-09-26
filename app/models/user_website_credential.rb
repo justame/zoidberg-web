@@ -12,9 +12,4 @@
 #
 
 class UserWebsiteCredential < ActiveRecord::Base
-  after_create :start_worker
-
-  def start_worker
-    #get request to the iron worker with report id
-  end
 end
