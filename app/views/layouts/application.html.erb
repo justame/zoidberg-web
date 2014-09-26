@@ -11,12 +11,13 @@
 
 </head>
 <body>
-
-  <% if notice %>
-    <div class="alert alert-info"><%= notice %></div>
-  <% end %>
-  <% if alert %>
-    <div class="alert alert-danger"><%= alert %></div>
+  <% unless user_signed_in? %>
+    <% if notice %>
+      <div class="alert alert-info"><%= notice %></div>
+    <% end %>
+    <% if alert %>
+      <div class="alert alert-danger"><%= alert %></div>
+    <% end %>
   <% end %>
 
 <%= yield %>
