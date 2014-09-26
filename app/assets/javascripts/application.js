@@ -22,3 +22,4 @@
 
 //= require app.js
 //= require routers.js
+//= require_tree ./controllers

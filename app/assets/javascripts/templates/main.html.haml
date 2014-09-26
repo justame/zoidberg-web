@@ -1,4 +1,4 @@
-.container
+.container{"ng-controller" => "mainCtrl"}
   .row
     .col-md-12
       .navbar.navbar-default
@@ -16,6 +16,9 @@
               %a{:href => "#"} Reports
 
           %ul.nav.navbar-nav.navbar-right
+            %li
+              %a
+                {{userEmail}}
             %li
               %a{"href" => "/logout"}
                 Logout

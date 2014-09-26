@@ -18,7 +18,8 @@ Rails.application.routes.draw do
   root 'dashboard#index'
 
   namespace :api do
-    resources :like_tracks
+    resources :like_tracks, :except => [:destroy, :update]
+    resources :user_website_credential, :except => [:destroy]
   end
 
   # Example of regular route:

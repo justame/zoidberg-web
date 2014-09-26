@@ -23,8 +23,7 @@ gem 'autoprefixer-rails'
 gem 'gon'
 gem 'rails_admin'
 gem 'annotate'
-gem 'pry'
-gem 'pry-rails'
+
 gem 'haml'
 gem 'haml-rails'
 gem 'jquery-rails'
@@ -52,7 +51,13 @@ end
 group :development do
   gem 'guard'
   gem "better_errors"
+  gem "binding_of_caller"
   gem 'xray-rails'
+  gem 'pry'
+  gem 'pry-rails'
+  gem 'pry-remote'
+  gem 'pry-nav'
+  
 end
 
 
