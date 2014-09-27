@@ -1,14 +1,19 @@
 class Api::BaseController < ActionController::Base
   before_action :add_cors_headers, :verify_token
   respond_to :json
+
+  def respond_empty_success
+    render json: {results: {status: 'success'}}
+  end
   
   private
 
   def verify_token
     if(params[:token] != Settings.API_TOKEN)
-      render :nothing, :status => :unauthorized
+      render nothing: true, :status => :unauthorized
     end
   end
+
 
   def add_cors_headers
     headers['Access-Control-Allow-Origin'] = '*'

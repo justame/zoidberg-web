@@ -12,4 +12,5 @@
 #
 
 class UserWebsiteCredential < ActiveRecord::Base
+  belongs_to :user
 end

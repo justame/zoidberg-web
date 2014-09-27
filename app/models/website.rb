@@ -11,4 +11,8 @@
 #
 
 class Website < ActiveRecord::Base
+
+  def self.okcupid
+    Website.where(title: "okcupid").first
+  end
 end

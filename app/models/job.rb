@@ -16,15 +16,24 @@
 
 class Job < ActiveRecord::Base
   enum status: { idle: 0, running: 1, complete: 2, failed: 3}
-  enum job_type: { likes: 0 }
+  enum job_type: { likes: 1 }
   
-  has_many :tasks
-  after_create :start_worker
+  has_many :tasks, dependent: :destroy
+  belongs_to :user
 
-  def start_worker
+  after_create :spawn_tasks
+  before_validation :can_create_job?
+
+  def spawn_tasks
     self.tasks.create(quantity: self.quantity, status: Task.statuses[:idle])
+  end
 
-    #call iron.io
+  def run
+    self.status == Job.statuses[:running]
+    self.save!
+    self.tasks.each do |task|
+      task.run
+    end
   end
 
   def set_complete
@@ -39,4 +48,15 @@ class Job < ActiveRecord::Base
       self.save!
     end
   end
+
+  def can_create_job?
+    last_job = self.user.last_job(self.website_id)
+    
+    if last_job.present? and last_job.running?
+      return false
+    else
+      return true
+    end
+  end
+
 end

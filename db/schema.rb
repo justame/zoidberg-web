@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140926200946) do
+ActiveRecord::Schema.define(version: 20140927165642) do
 
   create_table "jobs", force: true do |t|
     t.integer  "website_id"
@@ -27,11 +27,15 @@ ActiveRecord::Schema.define(version: 20140926200946) do
 
   create_table "like_tracks", force: true do |t|
     t.string   "user_id"
-    t.string   "website_id"
-    t.string   "website_profile_id"
+    t.integer  "website_id"
+    t.integer  "website_profile_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "job_id"
+    t.integer  "task_id"
   end
+
+  add_index "like_tracks", ["user_id", "website_id"], name: "index_like_tracks_on_user_id_and_website_id", using: :btree
 
   create_table "tasks", force: true do |t|
     t.integer  "job_id"
@@ -41,6 +45,7 @@ ActiveRecord::Schema.define(version: 20140926200946) do
     t.datetime "end_date"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "external_id"
   end
 
   create_table "user_website_credentials", force: true do |t|
@@ -51,6 +56,8 @@ ActiveRecord::Schema.define(version: 20140926200946) do
     t.integer  "website_id"
     t.integer  "user_id"
   end
+
+  add_index "user_website_credentials", ["username", "password"], name: "user_website_credentials_id", unique: true, using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "",    null: false
@@ -72,13 +79,15 @@ ActiveRecord::Schema.define(version: 20140926200946) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "website_profiles", force: true do |t|
-    t.string   "website_id"
+    t.integer  "website_id"
     t.string   "external_unique_id"
     t.string   "name"
     t.string   "main_image_url"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "website_profiles", ["external_unique_id", "website_id"], name: "index_website_profiles_on_external_unique_id_and_website_id", unique: true, using: :btree
 
   create_table "websites", force: true do |t|
     t.string   "title"

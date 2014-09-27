@@ -3,7 +3,7 @@
 # Table name: website_profiles
 #
 #  id                 :integer          not null, primary key
-#  website_id         :string(255)
+#  website_id         :integer
 #  external_unique_id :string(255)
 #  name               :string(255)
 #  main_image_url     :string(255)

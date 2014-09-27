@@ -24,6 +24,14 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_many :user_website_credentials
+  has_many :jobs
+
+  
+  def last_job(website_id)
+    Job.where(user_id: self.id, website_id: website_id).last
+  end
+
   def is_admin?
     self.admin?
   end

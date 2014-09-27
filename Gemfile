@@ -16,7 +16,7 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'therubyracer',  platforms: :ruby
 
 # Use jquery as the JavaScript library
-
+gem "rails_config"
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
 

@@ -1,16 +1,17 @@
 (function() {
   'use strict'
 
-  zoidbergApp.controller('dashboardCtrl', function($scope, $http) {
-
+  zoidbergApp.controller('dashboardCtrl', function($scope, $http, gon) {
+    $scope.workerStatus = gon.workerStatus;
+    
     $scope.startAutomaticLikes = function() {
-      $http.post('api/job/okcupid', {
+      $http.post('jobs/okcupid', {
         user_website_credential: {
           username: $scope.username,
           password: $scope.password
         }
-      }).then(function() {
-        alert('sent 100%');
+      }).then(function(data) {
+        $scope.workerStatus = 'running';
       })
     }
   });
