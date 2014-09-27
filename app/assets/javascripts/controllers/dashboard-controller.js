@@ -3,6 +3,7 @@
 
   zoidbergApp.controller('dashboardCtrl', function($scope, $http, gon) {
     $scope.canAutolike = gon.canAutolike;
+    $scope.inProgress = false;
     
     $scope.startAutomaticLikes = function() {
       $http.post('jobs/okcupid', {
