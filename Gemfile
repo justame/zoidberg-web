@@ -41,6 +41,7 @@ gem 'mysql', '~> 2.9.1'
 gem 'devise'
 gem 'angular-rails-templates'
 gem 'bower-rails'
+gem 'iron_worker_ng'
 
 group :production, :staging do
   gem "rails_12factor"

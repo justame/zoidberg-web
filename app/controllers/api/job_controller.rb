@@ -1,5 +1,7 @@
+  require "iron_worker_ng"
+
 class Api::JobController < ApplicationController
-  
+
   def create
     permitted = user_website_credential_params
     website = Website.find_by_title params[:website_title]
@@ -16,6 +18,10 @@ class Api::JobController < ApplicationController
       status: Job.statuses[:running],
       start_date: DateTime.now
      })
+    
+    client = IronWorkerNG::Client.new
+    task = client.tasks.create("zoidberg", "foo"=>"bar")
+    binding.pry
     # call worker
     render json: {results: {status: 'success'}}
   end
