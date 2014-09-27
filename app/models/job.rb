@@ -44,8 +44,7 @@ class Job < ActiveRecord::Base
 
   def recheck_tasks_status
     if(self.tasks.where(status: Task.statuses[:complete]).count  == self.tasks.count)
-      self.status = Job.statuses[:complete]
-      self.save!
+      set_complete()
     end
   end
 

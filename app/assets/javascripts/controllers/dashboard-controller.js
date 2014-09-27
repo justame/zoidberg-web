@@ -2,7 +2,7 @@
   'use strict'
 
   zoidbergApp.controller('dashboardCtrl', function($scope, $http, gon) {
-    $scope.workerStatus = gon.workerStatus;
+    $scope.canAutolike = gon.canAutolike;
     
     $scope.startAutomaticLikes = function() {
       $http.post('jobs/okcupid', {
@@ -11,7 +11,7 @@
           password: $scope.password
         }
       }).then(function(data) {
-        $scope.workerStatus = 'running';
+        $scope.canAutolike = false;
       })
     }
   });

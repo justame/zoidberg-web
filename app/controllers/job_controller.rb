@@ -13,7 +13,7 @@ class JobController < ApplicationController
       website_id: website.id,
       user_id: current_user.id,
       job_type: Job.job_types[:likes],
-      quantity: 10,
+      quantity: 50,
       status: Job.statuses[:idle],
       start_date: DateTime.now
      })

@@ -13,8 +13,7 @@ class ApplicationController < ActionController::Base
     if user_signed_in?
       gon.userEmail = current_user.email
       gon.workerStatus = ""
-      last_job = current_user.last_job(Website.okcupid)
-      gon.workerStatus = last_job.status unless last_job.blank?
+      gon.canAutoLike = current_user.can_autolike?(Website.okcupid.id)
     end
   end
 end

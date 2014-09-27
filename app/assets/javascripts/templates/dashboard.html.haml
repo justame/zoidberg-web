@@ -10,8 +10,8 @@
         .form-group
           %label{:for => "inputPassword"} Password
           %input#inputPassword.form-control{:placeholder => "Password", :type => "password", "ng-model" => "password"}/
-        %button.btn.btn-default{:type => "submit", "ng-click" => "startAutomaticLikes()", "ng-disabled" => "workerStatus == 'running'"} Start Automatic Likes
-        %span.bg-info{"ng-show" => "workerStatus == 'running'"}
+        %button.btn.btn-default{:type => "submit", "ng-click" => "startAutomaticLikes()", "ng-disabled" => "canAutolike"} Start Automatic Likes
+        %span.bg-info{"ng-show" => "canAutolike"}
           In Progress
     .col-md-5.col-md-offset-2
       %h2

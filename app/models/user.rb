@@ -35,4 +35,8 @@ class User < ActiveRecord::Base
   def is_admin?
     self.admin?
   end
+
+  def can_autolike?(website_id)
+    self.is_admin? or self.last_job(website_id).blank? or ((self.last_job(website_id).created_at) < (DateTime.now - 4.days))
+  end
 end
