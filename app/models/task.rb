@@ -38,8 +38,8 @@ class Task < ActiveRecord::Base
 
     payload = Hash.new
     payload[:token] = Settings.API_TOKEN
-    payload[:username] = user_website_credential.username
-    payload[:password] = user_website_credential.password
+    payload[:username] = user_website_credential[:username]
+    payload[:password] = user_website_credential[:password]
     payload[:jobId] = self.job_id
     payload[:taskId] = self.id
     payload[:websiteId] = website.id

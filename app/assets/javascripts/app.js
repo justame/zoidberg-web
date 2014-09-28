@@ -1,6 +1,7 @@
 var zoidbergApp = angular.module('zoidbergApp', [
   'templates',
-  'ui.router'
+  'ui.router',
+  'ngTouch'
   ]);
 
 zoidbergApp.constant('gon', window.gon || {});
