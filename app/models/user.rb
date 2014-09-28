@@ -26,6 +26,7 @@ class User < ActiveRecord::Base
 
   has_many :user_website_credentials
   has_many :jobs
+  has_many :like_tracks
 
   
   def last_job(website_id)

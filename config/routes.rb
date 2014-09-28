@@ -24,6 +24,8 @@ Rails.application.routes.draw do
   end
   
   post 'jobs/:website_title' => 'job#create'
+  
+  get 'like_tracks/' => 'like_tracks#index'
 
 
 
