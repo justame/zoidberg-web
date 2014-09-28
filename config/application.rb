@@ -21,7 +21,8 @@ module ZoidbergWeb
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
-    # config.assets.paths << Rails.root.join('vendor', 'assets', 'bower_components')
+    config.assets.paths << Rails.root.join('vendor', 'assets', 'bower_components')
+    config.assets.paths << Rails.root.join('bower_components')
     # config.assets.paths << Rails.root.join('vendor', 'assets', 'components')
     # config.assets.precompile.shift
     # # # Explicitly register the extensions we are interested in compiling
