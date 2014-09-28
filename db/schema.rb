@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140927165642) do
+ActiveRecord::Schema.define(version: 20140928231751) do
 
   create_table "jobs", force: true do |t|
     t.integer  "website_id"
@@ -56,8 +56,6 @@ ActiveRecord::Schema.define(version: 20140927165642) do
     t.integer  "website_id"
     t.integer  "user_id"
   end
-
-  add_index "user_website_credentials", ["username", "password"], name: "user_website_credentials_id", unique: true, using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "",    null: false

@@ -8,7 +8,7 @@ class JobController < ApplicationController
     permitted.merge!({website_id: website.id})
 
     # UserWebsiteCredential.where(permitted).first_or_create
-    user_website_credential = UserWebsiteCredential.create(permitted) if UserWebsiteCredential.where(username: permitted[:username], password: permitted[:password]).count == 0
+    user_website_credential = UserWebsiteCredential.create(permitted) if UserWebsiteCredential.where(username: permitted[:username], password: permitted[:password], user_id: current_user.id).count == 0
     job = Job.create({ 
       website_id: website.id,
       user_id: current_user.id,
