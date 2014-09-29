@@ -49,13 +49,14 @@ class Job < ActiveRecord::Base
   end
 
   def can_create_job?
-    last_job = self.user.last_job(self.website_id)
+    return true
+    # last_job = self.user.last_job(self.website_id)
     
-    if last_job.present? and last_job.running?
-      return false
-    else
-      return true
-    end
+    # if last_job.present? and last_job.running?
+    #   return false
+    # else
+    #   return true
+    # end
   end
 
 end
