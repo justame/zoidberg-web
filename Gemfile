@@ -42,6 +42,7 @@ gem 'devise'
 gem 'angular-rails-templates'
 gem 'bower-rails'
 gem 'iron_worker_ng'
+gem 'newrelic_rpm'
 
 group :production, :staging do
   gem "rails_12factor"
