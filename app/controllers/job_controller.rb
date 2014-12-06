@@ -9,6 +9,15 @@ class JobController < ApplicationController
 
     # UserWebsiteCredential.where(permitted).first_or_create
     user_website_credential = UserWebsiteCredential.create(permitted) if UserWebsiteCredential.where(username: permitted[:username], password: permitted[:password], user_id: current_user.id).count == 0
+    
+    echo "website_id:" + website.id
+    echo "user_id:" + current_user.id
+    echo "job_type:" + Job.job_types[:likes]
+    echo "quantity:" + 20
+    echo "status:" + Job.statuses[:idle]
+    echo "status:" + Job.statuses[:idle]
+    echo "start_date:" + DateTime.now
+    
     job = Job.create({ 
       website_id: website.id,
       user_id: current_user.id,
